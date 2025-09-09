@@ -50,7 +50,7 @@ export default function Navbar() {
     <header className={`sticky top-0 z-50 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 ${
       scrolled ? "shadow-sm" : ""
     }`}>
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <nav className="mt-2 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 border border-gray-300 rounded-full p-2">
         <div className="flex h-16 items-center justify-between">
           {/* Left: Logo */}
           <a href="#" className="flex items-center gap-3 group" aria-label="AlphaGen Coding home">
