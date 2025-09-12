@@ -4,7 +4,7 @@ import heroImg from "../assets/971.png"; // replace with your image
 export default function Hero() {
   return (
     <section className="  mt-20">
-      <div className="max-w-screen-xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center gap-10 border rounded-3xl dark:bg-gray-900 bg-gray-50">
+      <div className="max-w-screen-2xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center gap-10 border rounded-3xl dark:bg-gray-900 bg-gray-50">
         {/* Left content */}
         <div className="flex-1">
           <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white leading-tight">
