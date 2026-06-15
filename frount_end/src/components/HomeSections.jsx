@@ -555,7 +555,7 @@ export function Contact() {
           </p>
           <div className="mt-8 grid gap-4">
             <a
-              href="https://wa.me/94700000000"
+              href="https://wa.me/94707777695"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4 font-semibold text-white transition hover:bg-white/10"
@@ -564,11 +564,11 @@ export function Contact() {
               WhatsApp AlphaGen Coding
             </a>
             <a
-              href="mailto:hello@alphagencoding.com"
+              href="mailto:alphagencoding@gmail.com"
               className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4 font-semibold text-white transition hover:bg-white/10"
             >
               <Mail className="h-5 w-5 text-cyan-300" aria-hidden="true" />
-              hello@alphagencoding.com
+              alphagencoding@gmail.com
             </a>
             <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4 font-semibold text-white">
               <MapPin className="h-5 w-5 text-cyan-300" aria-hidden="true" />
@@ -612,10 +612,10 @@ export function Footer() {
             <h3 className="font-bold text-white">Contact</h3>
             <div className="mt-4 grid gap-3 text-sm text-slate-400">
               <span>Sri Lanka</span>
-              <a href="mailto:hello@alphagencoding.com" className="hover:text-cyan-300">
-                hello@alphagencoding.com
+              <a href="mailto:alphagencoding@gmail.com" className="hover:text-cyan-300">
+              alphagencoding@gmail.com
               </a>
-              <a href="https://wa.me/94700000000" target="_blank" rel="noreferrer" className="hover:text-cyan-300">
+              <a href="https://wa.me/94707777695" target="_blank" rel="noreferrer" className="hover:text-cyan-300">
                 WhatsApp
               </a>
             </div>
