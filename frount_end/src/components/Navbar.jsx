@@ -1,102 +1,95 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.svg";
+import { Button } from "./ui";
+
+const links = [
+  { label: "Home", href: "#home" },
+  { label: "Services", href: "#services" },
+  { label: "Work", href: "#work" },
+  { label: "Products", href: "#products" },
+  { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
+];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
+  const closeMenu = () => setOpen(false);
+
   return (
-    <nav className="fixed w-full z-20 top-0 start-0">
-      <div className="max-w-screen-2xl flex flex-wrap items-center justify-between mx-auto p-4 border rounded-3xl dark:bg-gray-900 bg-gray-50">
-        {/* Brand */}
-        <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
-          <img src={logo} className="h-8" alt="AlphaGen Coding logo" />
-          <span className="self-center text-lg font-semibold whitespace-nowrap dark:text-white">
-            AlphaGen <span className="text-sky-600">Coding</span>
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/85 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <a href="#home" className="flex items-center gap-3" onClick={closeMenu}>
+          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white shadow-lg shadow-cyan-500/10">
+            <img src={logo} className="h-6 w-6" alt="AlphaGen Coding logo" />
+          </span>
+          <span className="text-base font-bold tracking-tight text-white sm:text-lg">
+            AlphaGen <span className="text-cyan-300">Coding</span>
           </span>
         </a>
 
-        {/* Right: CTA + Burger */}
-        <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-          <a href="#contact">
-            <button
-              type="button"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        <div className="hidden items-center gap-7 lg:flex">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm font-medium text-slate-300 transition hover:text-white"
             >
-              Talk to Us
-            </button>
-          </a>
-
-          <button
-            type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-            aria-controls="navbar-sticky"
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-          >
-            <span className="sr-only">Open main menu</span>
-            {/* burger icon */}
-            <svg className="w-5 h-5" aria-hidden="true" viewBox="0 0 17 14" fill="none">
-              <path
-                d="M1 1h15M1 7h15M1 13h15"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+              {link.label}
+            </a>
+          ))}
         </div>
 
-        {/* Collapsible menu */}
-        <div
-          id="navbar-sticky"
-          className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
-            open ? "block" : "hidden"
-          }`}
+        <div className="hidden items-center gap-3 lg:flex">
+          <Button href="https://wa.me/94700000000" variant="ghost" external>
+            WhatsApp
+          </Button>
+          <Button href="#contact">Book a Call</Button>
+        </div>
+
+        <button
+          type="button"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 text-slate-200 lg:hidden"
+          aria-controls="mobile-menu"
+          aria-expanded={open}
+          onClick={() => setOpen((value) => !value)}
         >
-          <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 
-                          md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white 
-                          dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-            <li>
-              <a
-                href="#"
-                className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
-                aria-current="page"
-                onClick={() => setOpen(false)}
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
-                onClick={() => setOpen(false)}
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#services"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
-                onClick={() => setOpen(false)}
-              >
-                Services
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
-                onClick={() => setOpen(false)}
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
+          <span className="sr-only">Toggle menu</span>
+          <svg className="h-5 w-5" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+            <path
+              d={open ? "M5 5l10 10M15 5L5 15" : "M3 6h14M3 10h14M3 14h14"}
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+            />
+          </svg>
+        </button>
       </div>
+
+      {open && (
+        <div id="mobile-menu" className="border-t border-white/10 bg-slate-950 px-4 pb-5 lg:hidden">
+          <div className="mx-auto flex max-w-7xl flex-col gap-2 py-4">
+            {links.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="rounded-2xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10"
+                onClick={closeMenu}
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3">
+            <Button href="https://wa.me/94700000000" variant="ghost" external onClick={closeMenu}>
+              WhatsApp
+            </Button>
+            <Button href="#contact" onClick={closeMenu}>
+              Book a Call
+            </Button>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

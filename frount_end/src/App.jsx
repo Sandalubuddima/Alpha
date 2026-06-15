@@ -1,19 +1,37 @@
-import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
-import ServicesGrid from "./components/ServicesGrid";
-import Testimonials from "./components/Testimonials";
+import {
+  About,
+  ClientStrip,
+  Contact,
+  FeaturedWork,
+  Footer,
+  Hero,
+  Process,
+  Products,
+  Services,
+  TechStack,
+  Testimonials,
+  WhyChooseUs,
+} from "./components/HomeSections";
 
 export default function App() {
   return (
-    <>
-    <div className="">
+    <div className="min-h-screen bg-slate-950 text-white">
       <Navbar />
       <Hero />
-      <ServicesGrid />
-      <Testimonials />
-      {/* your sections */}
+      <main>
+        <ClientStrip />
+        <Services />
+        <FeaturedWork />
+        <Products />
+        <WhyChooseUs />
+        <Process />
+        <TechStack />
+        <About />
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
     </div>
-
-    </>
   );
 }
