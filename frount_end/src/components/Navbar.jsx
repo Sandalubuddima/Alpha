@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import logo from "../assets/logo.svg";
 import { Button } from "./ui";
+
+const faviconLogo = "/favicon%20%281%29/favicon.svg";
 
 const links = [
   { label: "Home", href: "#home" },
@@ -21,7 +22,7 @@ export default function Navbar() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <a href="#home" className="flex items-center gap-3" onClick={closeMenu}>
           <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white shadow-lg shadow-cyan-500/10">
-            <img src={logo} className="h-6 w-6" alt="AlphaGen Coding logo" />
+            <img src={faviconLogo} className="h-6 w-6" alt="AlphaGen Coding logo" />
           </span>
           <span className="text-base font-bold tracking-tight text-white sm:text-lg">
             AlphaGen <span className="text-cyan-300">Coding</span>
