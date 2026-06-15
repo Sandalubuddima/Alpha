@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "./ui";
 
-const faviconLogo = "/favicon%20%281%29/favicon.svg";
+const faviconLogo = "/favicon/favicon.svg";
 
 const links = [
   { label: "Home", href: "#home" },
