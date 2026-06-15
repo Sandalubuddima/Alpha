@@ -41,7 +41,7 @@ export default function Navbar() {
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button href="https://wa.me/94700000000" variant="ghost" external>
+          <Button href="https://wa.me/94707777695" variant="ghost" external>
             WhatsApp
           </Button>
           <Button href="#contact">Book a Call</Button>
@@ -81,7 +81,7 @@ export default function Navbar() {
             ))}
           </div>
           <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3">
-            <Button href="https://wa.me/94700000000" variant="ghost" external onClick={closeMenu}>
+            <Button href="https://wa.me/94794707777695" variant="ghost" external onClick={closeMenu}>
               WhatsApp
             </Button>
             <Button href="#contact" onClick={closeMenu}>

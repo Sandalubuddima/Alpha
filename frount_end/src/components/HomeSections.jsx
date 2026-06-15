@@ -546,7 +546,7 @@ export function Contact() {
           >
             Send Message
           </button>
-          <p className="text-xs leading-6 text-slate-400">Frontend-only form for now. Connect email/API later.</p>
+          {/* <p className="text-xs leading-6 text-slate-400">Frontend-only form for now. Connect email/API later.</p> */}
         </form>
         <div className="rounded-3xl bg-slate-950/70 p-6">
           <h3 className="text-2xl font-bold text-white">Start with a free consultation</h3>
