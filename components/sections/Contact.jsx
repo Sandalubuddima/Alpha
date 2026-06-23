@@ -113,7 +113,7 @@ export default function Contact() {
           </button>
           {status === "success" && (
             <p className="rounded-2xl border border-emerald-300/20 bg-emerald-300/10 px-4 py-3 text-sm font-semibold text-emerald-200">
-              Thanks. Your message is ready in the frontend. Backend email delivery can be connected next.
+              ✓ Message sent. We&apos;ll be in touch within 24 hours.
             </p>
           )}
           {status === "error" && (
