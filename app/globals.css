@@ -3,7 +3,25 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  /* Brand colors (RGB channels so Tailwind opacity modifiers work) */
+  --brand-blue: 26 140 255; /* #1A8CFF */
+  --brand-indigo: 59 91 255; /* #3B5BFF */
+  --brand-violet: 91 46 245; /* #5B2EF5 */
+
+  --surface: 255 255 255; /* #FFFFFF */
+  --surface-alt: 248 250 252; /* #F8FAFC */
+  --tint: 238 242 255; /* #EEF2FF */
+  --line: 226 232 240; /* #E2E8F0 */
+  --ink: 15 23 42; /* #0F172A headings */
+  --body: 71 85 105; /* #475569 body text */
+  --muted: 100 116 139; /* #64748B */
+  --night: 11 16 38; /* #0B1026 dark sections */
+
+  --gradient-brand: linear-gradient(135deg, #1a8cff 0%, #3b5bff 50%, #5b2ef5 100%);
+  /* Same brand stops, weighted toward indigo/violet so white button text meets WCAG AA */
+  --gradient-button: linear-gradient(135deg, #1a8cff -30%, #3b5bff 40%, #5b2ef5 100%);
+
+  color-scheme: light;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -17,9 +35,149 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  background: #020617;
+  background: rgb(var(--surface));
 }
 
 ::selection {
-  background: rgba(103, 232, 249, 0.35);
+  background: rgb(var(--brand-indigo) / 0.18);
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-brand-gradient bg-clip-text text-transparent;
+  }
+
+  .card {
+    @apply relative rounded-2xl border border-line bg-white shadow-soft transition duration-300 ease-out hover:-translate-y-1 hover:border-brand-indigo/50 hover:shadow-lifted;
+  }
+
+  .icon-box {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-tint text-brand-indigo;
+  }
+
+  .tag {
+    @apply rounded-full bg-tint px-2.5 py-1 text-xs font-semibold text-brand-indigo;
+  }
+
+  .glass-chip {
+    @apply inline-flex items-center gap-2 whitespace-nowrap rounded-full border border-white/70 bg-white/75 px-3.5 py-2 text-xs font-semibold text-ink shadow-lifted backdrop-blur-md sm:text-sm;
+  }
+
+  /* Dot pattern that fades out toward the edges */
+  .bg-dot-grid {
+    background-image: radial-gradient(rgb(var(--ink) / 0.13) 1px, transparent 1px);
+    background-size: 22px 22px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
+  }
+
+  /* Client marquee */
+  .marquee {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+    mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 40s linear infinite;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  /* Loading sweep for live previews */
+  .shimmer::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.75), transparent);
+    animation: shimmer 1.6s ease-in-out infinite;
+  }
+
+  .float-slow {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .float-slower {
+    animation: float 7.5s ease-in-out -2s infinite;
+  }
+}
+
+@keyframes shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Scroll fade-up: only hides content once JS has marked the page as ready */
+.reveal-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-ready [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal-ready [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .card,
+  .card:hover {
+    transform: none;
+    transition: none;
+  }
+
+  .float-slow,
+  .float-slower,
+  .shimmer::after {
+    animation: none;
+  }
+
+  .marquee {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .marquee-track {
+    animation: none;
+    width: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .marquee-track > [aria-hidden="true"] {
+    display: none;
+  }
 }

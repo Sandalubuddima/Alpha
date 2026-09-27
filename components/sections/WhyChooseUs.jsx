@@ -17,12 +17,15 @@ export default function WhyChooseUs() {
       eyebrow="Why Choose Us"
       title="A practical, founder-led software team"
       description="We keep communication direct, timelines realistic and solutions focused on business value."
+      className="bg-surface-alt"
     >
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {whyChooseUs.map((item) => (
-          <div key={item} className="flex gap-3 rounded-3xl border border-white/10 bg-white/[0.04] p-5">
-            <ShieldCheck className="mt-1 h-5 w-5 shrink-0 text-cyan-300" aria-hidden="true" />
-            <p className="font-semibold leading-7 text-white">{item}</p>
+          <div key={item} className="card flex items-center gap-4 p-5">
+            <span className="icon-box h-10 w-10 rounded-lg">
+              <ShieldCheck className="h-5 w-5" aria-hidden="true" />
+            </span>
+            <p className="font-semibold leading-snug text-ink">{item}</p>
           </div>
         ))}
       </div>

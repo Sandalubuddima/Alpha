@@ -1,24 +1,40 @@
-import { ArrowRight, BadgeCheck } from "lucide-react";
-import { Button, Container } from "@/components/ui";
+import { ArrowRight, Check, RefreshCw } from "lucide-react";
+import { BrowserFrame, Button, Container, TightText } from "@/components/ui";
+import { cn } from "@/lib/utils";
+import { publicAsset } from "@/lib/assets";
+
+const stats = [
+  { value: "8+", label: "Live client projects" },
+  { value: "3", label: "Countries served" },
+  { value: "24h", label: "Response time" },
+  { value: "100%", label: "Post-launch support" },
+];
 
 export default function Hero() {
+  const dashboard = publicAsset("/work/classflow-dashboard.png");
+
   return (
-    <header id="home" className="relative isolate overflow-hidden pt-28">
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(34,211,238,0.28),transparent_32%),linear-gradient(135deg,#020617_0%,#0f172a_45%,#111827_100%)]" />
-      <div className="absolute right-0 top-24 -z-10 h-72 w-72 rounded-full bg-cyan-400/10 blur-3xl" />
-      <Container className="grid items-center gap-12 pb-20 pt-10 lg:grid-cols-[1.05fr_0.95fr] lg:pb-28">
+    <header id="home" className="relative isolate overflow-hidden bg-white pt-28 lg:pt-32">
+      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+        <div className="bg-dot-grid absolute inset-0" />
+        <div className="absolute -left-40 -top-32 h-[30rem] w-[30rem] rounded-full bg-brand-blue/15 blur-3xl" />
+        <div className="absolute -right-24 top-10 h-[32rem] w-[32rem] rounded-full bg-brand-violet/[0.12] blur-3xl" />
+      </div>
+
+      <Container className="grid items-center gap-14 pb-16 lg:grid-cols-[1.05fr_1fr] lg:gap-12 lg:pb-20">
         <div>
-          <span className="inline-flex rounded-full border border-cyan-300/20 bg-cyan-300/10 px-4 py-2 text-sm font-semibold text-cyan-200">
+          <span className="inline-flex rounded-full border border-brand-indigo/15 bg-tint px-3.5 py-1.5 text-[13px] font-semibold text-brand-indigo">
             Sri Lankan software team building for local and global clients
           </span>
-          <h1 className="mt-7 max-w-5xl text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-7xl">
-            Custom Software, Websites & Business Systems for Growing Companies
+          <h1 className="mt-6 text-balance text-[clamp(2.5rem,1.3rem+2.9vw,3.6rem)] font-bold leading-[1.05] tracking-[-0.03em] text-ink">
+            Custom Software<TightText>,</TightText> Websites &{" "}
+            <span className="text-gradient">Business Systems</span> for Growing Companies
           </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+          <p className="mt-6 max-w-[60ch] text-[17px] leading-[1.7] text-body sm:text-lg">
             AlphaGen Coding builds modern web applications, SaaS products, POS systems, IoT-integrated solutions and
             business websites for clients in Sri Lanka and worldwide.
           </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button href="#work" className="gap-2">
               View Our Work <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Button>
@@ -26,47 +42,56 @@ export default function Hero() {
               Get Free Consultation
             </Button>
           </div>
-          <p className="mt-8 flex max-w-3xl items-start gap-3 text-sm font-medium leading-7 text-slate-300">
-            <BadgeCheck className="mt-1 h-5 w-5 shrink-0 text-cyan-300" aria-hidden="true" />
-            Trusted by businesses in education, tourism, publishing, cleaning services, advertising and retail.
+
+          <dl className="mt-10 grid max-w-xl grid-cols-2 gap-y-6 sm:grid-cols-4">
+            {stats.map((stat, index) => (
+              <div
+                key={stat.label}
+                className={cn(
+                  "flex flex-col-reverse pr-4",
+                  index % 2 === 1 && "border-l border-line pl-5",
+                  index > 0 && "sm:border-l sm:border-line sm:pl-5",
+                  index === 2 && "max-sm:border-l-0 max-sm:pl-0"
+                )}
+              >
+                <dt className="mt-1 whitespace-nowrap text-[13px] leading-snug text-muted">{stat.label}</dt>
+                <dd className="text-2xl font-bold tracking-[-0.02em] text-ink">{stat.value}</dd>
+              </div>
+            ))}
+          </dl>
+          <p className="mt-6 max-w-xl text-[13px] leading-6 text-muted">
+            Trusted by businesses in education, tourism, publishing, agriculture, cleaning services, advertising and retail.
           </p>
         </div>
 
-        <div className="rounded-[2rem] border border-white/10 bg-white/[0.06] p-4 shadow-2xl shadow-cyan-950/40 backdrop-blur">
-          <div className="rounded-[1.5rem] bg-slate-950 p-5 ring-1 ring-white/10">
-            <div className="mb-5 flex items-center justify-between">
-              <div>
-                <p className="text-sm font-bold text-white">AlphaGen Delivery Board</p>
-                <p className="text-xs text-slate-400">Websites, SaaS, POS, IoT and automation</p>
-              </div>
-              <span className="rounded-full bg-emerald-400/10 px-3 py-1 text-xs font-bold text-emerald-300">
-                Live
-              </span>
-            </div>
-            <div className="grid gap-3">
-              {[
-                ["ClassFlow SaaS", "QR attendance + payments", "92%"],
-                ["Tourism website", "Lead-focused public site", "Ready"],
-                ["POS System", "Billing + reports", "Build"],
-              ].map(([title, text, status]) => (
-                <div key={title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-                  <div className="flex items-center justify-between gap-4">
-                    <div>
-                      <p className="font-semibold text-white">{title}</p>
-                      <p className="mt-1 text-sm text-slate-400">{text}</p>
-                    </div>
-                    <span className="text-sm font-bold text-cyan-300">{status}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="mt-5 grid grid-cols-3 gap-3">
-              {["Web Apps", "Systems", "Cloud"].map((item) => (
-                <div key={item} className="rounded-2xl bg-cyan-300/10 p-4 text-center">
-                  <p className="text-xs font-semibold text-cyan-200">{item}</p>
-                </div>
-              ))}
-            </div>
+        <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
+          <div
+            aria-hidden="true"
+            className="absolute -inset-6 -z-10 rounded-[3rem] bg-brand-gradient opacity-20 blur-3xl"
+          />
+          <div className="lg:[transform:perspective(1800px)_rotateY(-9deg)_rotateX(3deg)]">
+            <BrowserFrame
+              url="classflow.lk"
+              src={dashboard}
+              alt="ClassFlow dashboard"
+              name="ClassFlow"
+              priority
+              sizes="(min-width: 1024px) 600px, 100vw"
+              bodyClassName="aspect-[16/10]"
+              className="shadow-[0_40px_90px_-30px_rgb(15_23_42/0.35)]"
+            />
+          </div>
+          <div className="glass-chip float-slow absolute bottom-8 left-3 sm:-left-6 lg:-left-10">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 text-white">
+              <Check className="h-3 w-3" strokeWidth={3} aria-hidden="true" />
+            </span>
+            QR Attendance
+          </div>
+          <div className="glass-chip float-slower absolute right-3 top-14 sm:-right-5 lg:-right-6">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-indigo text-white">
+              <RefreshCw className="h-3 w-3" strokeWidth={2.5} aria-hidden="true" />
+            </span>
+            LKR payments synced
           </div>
         </div>
       </Container>

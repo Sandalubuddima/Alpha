@@ -5,32 +5,37 @@ import { useState } from "react";
 import { navLinks, siteConfig } from "@/data/site";
 import { Button } from "./ui";
 
+// Swap to "/logo.png" once the transparent brand logo is added to /public.
+const LOGO_SRC = "/favicon/favicon.svg";
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const closeMenu = () => setOpen(false);
 
   return (
-    <nav className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-slate-950/85 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <a href="#home" className="flex items-center gap-3" onClick={closeMenu}>
-          <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white shadow-lg shadow-cyan-500/10">
-            <Image src="/favicon/favicon.svg" width={24} height={24} alt="AlphaGen Coding logo" priority />
-          </span>
-          <span className="text-base font-bold tracking-tight text-white sm:text-lg">
-            AlphaGen <span className="text-cyan-300">Coding</span>
+    <nav className="fixed inset-x-0 top-0 z-50 border-b border-line/80 bg-white/80 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-[1248px] items-center justify-between px-4 py-3 sm:px-6">
+        <a href="#home" className="flex items-center gap-2.5" onClick={closeMenu}>
+          <Image src={LOGO_SRC} width={36} height={36} alt="AlphaGen Coding logo" priority className="h-9 w-9" />
+          <span className="text-base font-bold tracking-[-0.02em] text-ink sm:text-lg">
+            AlphaGen <span className="text-gradient">Coding</span>
           </span>
         </a>
 
         <div className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => (
-            <a key={link.href} href={link.href} className="text-sm font-medium text-slate-300 transition hover:text-white">
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm font-medium text-body transition duration-200 hover:text-brand-indigo"
+            >
               {link.label}
             </a>
           ))}
         </div>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Button href={siteConfig.whatsappUrl} variant="ghost" external>
+          <Button href={siteConfig.whatsappUrl} variant="outline" external>
             WhatsApp
           </Button>
           <Button href="#contact">Book a Call</Button>
@@ -38,7 +43,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 text-slate-200 lg:hidden"
+          className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-white text-ink transition duration-200 hover:border-brand-indigo/40 hover:text-brand-indigo lg:hidden"
           aria-controls="mobile-menu"
           aria-expanded={open}
           onClick={() => setOpen((value) => !value)}
@@ -56,21 +61,21 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-white/10 bg-slate-950 px-4 pb-5 lg:hidden">
-          <div className="mx-auto flex max-w-7xl flex-col gap-2 py-4">
+        <div id="mobile-menu" className="border-t border-line bg-white px-4 pb-5 shadow-lifted lg:hidden">
+          <div className="mx-auto flex max-w-[1248px] flex-col gap-1 py-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="rounded-2xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/10"
+                className="rounded-xl px-4 py-3 text-sm font-semibold text-ink transition duration-200 hover:bg-tint hover:text-brand-indigo"
                 onClick={closeMenu}
               >
                 {link.label}
               </a>
             ))}
           </div>
-          <div className="mx-auto grid max-w-7xl grid-cols-2 gap-3">
-            <Button href={siteConfig.whatsappUrl} variant="ghost" external onClick={closeMenu}>
+          <div className="mx-auto grid max-w-[1248px] grid-cols-2 gap-3">
+            <Button href={siteConfig.whatsappUrl} variant="outline" external onClick={closeMenu}>
               WhatsApp
             </Button>
             <Button href="#contact" onClick={closeMenu}>

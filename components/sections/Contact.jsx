@@ -58,15 +58,16 @@ export default function Contact() {
       eyebrow="Contact"
       title="Tell us what you want to build"
       description="Send your idea, business problem or project scope. We usually reply within 24 hours."
+      className="bg-white"
     >
-      <div className="grid gap-8 rounded-[2rem] border border-cyan-300/20 bg-cyan-300/10 p-6 sm:p-8 lg:grid-cols-[1fr_0.9fr] lg:p-10">
-        <form className="grid gap-4" onSubmit={handleSubmit} noValidate>
+      <div className="grid grid-cols-1 gap-8 rounded-3xl border border-line bg-white p-5 shadow-soft sm:p-8 lg:grid-cols-[1fr_0.9fr] lg:p-10">
+        <form className="grid min-w-0 gap-4" onSubmit={handleSubmit} noValidate>
           {[
             { label: "Name", name: "name", type: "text", placeholder: "Your name", required: true },
             { label: "Email", name: "email", type: "email", placeholder: "you@example.com", required: true },
             { label: "Company", name: "company", type: "text", placeholder: "Company or project name" },
           ].map((field) => (
-            <label key={field.name} className="grid gap-2 text-sm font-semibold text-white">
+            <label key={field.name} className="grid gap-2 text-sm font-semibold text-ink">
               {field.label}
               <input
                 name={field.name}
@@ -77,16 +78,16 @@ export default function Contact() {
                 onChange={handleChange}
                 aria-invalid={Boolean(errors[field.name])}
                 aria-describedby={errors[field.name] ? `${field.name}-error` : undefined}
-                className="rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300"
+                className="w-full min-w-0 rounded-xl border border-line bg-white px-4 py-3 text-[15px] font-normal text-ink outline-none transition duration-200 placeholder:text-slate-400 focus:border-brand-indigo focus:ring-4 focus:ring-brand-indigo/10"
               />
               {errors[field.name] && (
-                <span id={`${field.name}-error`} className="text-xs font-medium text-rose-300">
+                <span id={`${field.name}-error`} className="text-xs font-medium text-rose-600">
                   {errors[field.name]}
                 </span>
               )}
             </label>
           ))}
-          <label className="grid gap-2 text-sm font-semibold text-white">
+          <label className="grid gap-2 text-sm font-semibold text-ink">
             Project details
             <textarea
               name="details"
@@ -97,55 +98,55 @@ export default function Contact() {
               onChange={handleChange}
               aria-invalid={Boolean(errors.details)}
               aria-describedby={errors.details ? "details-error" : undefined}
-              className="rounded-2xl border border-white/10 bg-slate-950/70 px-4 py-3 text-white outline-none transition placeholder:text-slate-500 focus:border-cyan-300"
+              className="w-full min-w-0 rounded-xl border border-line bg-white px-4 py-3 text-[15px] font-normal text-ink outline-none transition duration-200 placeholder:text-slate-400 focus:border-brand-indigo focus:ring-4 focus:ring-brand-indigo/10"
             />
             {errors.details && (
-              <span id="details-error" className="text-xs font-medium text-rose-300">
+              <span id="details-error" className="text-xs font-medium text-rose-600">
                 {errors.details}
               </span>
             )}
           </label>
           <button
             type="submit"
-            className="inline-flex w-full items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-bold text-white transition hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-950"
+            className="inline-flex w-full items-center justify-center rounded-full bg-brand-button px-5 py-3 text-sm font-bold text-white shadow-brand transition duration-200 hover:-translate-y-0.5 hover:shadow-brand-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-indigo motion-reduce:hover:translate-y-0"
           >
             Send Message
           </button>
           {status === "success" && (
-            <p className="rounded-2xl border border-emerald-300/20 bg-emerald-300/10 px-4 py-3 text-sm font-semibold text-emerald-200">
+            <p className="rounded-xl border border-emerald-600/15 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700">
               ✓ Message sent. We&apos;ll be in touch within 24 hours.
             </p>
           )}
           {status === "error" && (
-            <p className="rounded-2xl border border-rose-300/20 bg-rose-300/10 px-4 py-3 text-sm font-semibold text-rose-200">
+            <p className="rounded-xl border border-rose-600/15 bg-rose-50 px-4 py-3 text-sm font-semibold text-rose-700">
               Please fix the highlighted fields before sending.
             </p>
           )}
         </form>
-        <div className="rounded-3xl bg-slate-950/70 p-6">
-          <h3 className="text-2xl font-bold text-white">Start with a free consultation</h3>
-          <p className="mt-4 text-sm leading-7 text-slate-300">
+        <div className="min-w-0 rounded-2xl bg-gradient-to-br from-tint via-white to-surface-alt p-5 ring-1 ring-inset ring-line sm:p-6">
+          <h3 className="text-2xl font-bold tracking-[-0.02em] text-ink">Start with a free consultation</h3>
+          <p className="mt-4 text-[15px] leading-[1.7] text-muted">
             We can discuss your requirements, suggest a practical technical path and estimate a realistic first version.
           </p>
-          <div className="mt-8 grid gap-4">
+          <div className="mt-8 grid grid-cols-1 gap-4">
             <a
               href={siteConfig.whatsappUrl}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4 font-semibold text-white transition hover:bg-white/10"
+              className="flex min-w-0 items-center gap-3 rounded-xl border border-line bg-white p-3.5 text-sm font-semibold text-ink sm:p-4 sm:text-base [overflow-wrap:anywhere] transition duration-200 hover:border-brand-indigo/50 hover:text-brand-indigo"
             >
-              <MessageCircle className="h-5 w-5 text-cyan-300" aria-hidden="true" />
+              <MessageCircle className="h-5 w-5 text-brand-indigo" aria-hidden="true" />
               WhatsApp AlphaGen Coding
             </a>
             <a
               href={`mailto:${siteConfig.email}`}
-              className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4 font-semibold text-white transition hover:bg-white/10"
+              className="flex min-w-0 items-center gap-3 rounded-xl border border-line bg-white p-3.5 text-sm font-semibold text-ink sm:p-4 sm:text-base [overflow-wrap:anywhere] transition duration-200 hover:border-brand-indigo/50 hover:text-brand-indigo"
             >
-              <Mail className="h-5 w-5 text-cyan-300" aria-hidden="true" />
+              <Mail className="h-5 w-5 text-brand-indigo" aria-hidden="true" />
               {siteConfig.email}
             </a>
-            <div className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.04] p-4 font-semibold text-white">
-              <MapPin className="h-5 w-5 text-cyan-300" aria-hidden="true" />
+            <div className="flex min-w-0 items-center gap-3 rounded-xl border border-line bg-white p-3.5 text-sm font-semibold text-ink sm:p-4 sm:text-base [overflow-wrap:anywhere]">
+              <MapPin className="h-5 w-5 text-brand-indigo" aria-hidden="true" />
               {siteConfig.location}
             </div>
           </div>

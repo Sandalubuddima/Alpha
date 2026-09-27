@@ -5,4 +5,6 @@ export const clients = [
   "Everlasting Cleaning",
   "Lanka Invite",
   "Siyasro Advertising",
+  "Lunuwila Agri",
+  "Aradhana Mobiles",
 ];

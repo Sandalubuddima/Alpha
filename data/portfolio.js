@@ -1,9 +1,12 @@
+import { Cpu, Dumbbell, Store } from "lucide-react";
+
 export const portfolio = [
   {
     name: "ClassFlow",
     type: "SaaS Product",
     status: "Public",
     href: "https://classflow.lk",
+    slug: "classflow",
     description:
       "Smart tuition class management platform with QR attendance, student management, payments, teacher-institute workflows and student portal.",
     tech: ["SaaS", "QR Attendance", "Payments"],
@@ -13,6 +16,7 @@ export const portfolio = [
     type: "Business Website",
     status: "Public",
     href: "https://malpiyali.com",
+    slug: "malpiyali",
     description: "Business website for a publishing / book-related brand with a clean online presence.",
     tech: ["Website", "Publishing", "SEO"],
   },
@@ -21,6 +25,7 @@ export const portfolio = [
     type: "Tourism Website",
     status: "Public",
     href: "https://mishellankatours.com",
+    slug: "mishel-lanka-tours",
     description:
       "Tourism website built to promote travel packages and attract local and international customers.",
     tech: ["Travel", "Lead Generation", "Responsive"],
@@ -30,6 +35,7 @@ export const portfolio = [
     type: "Service Website",
     status: "Public",
     href: "https://everlastingcleaning.au",
+    slug: "everlasting-cleaning",
     description:
       "Australian cleaning service website focused on trust, service presentation and lead generation.",
     tech: ["Australia", "Services", "Conversion"],
@@ -39,6 +45,7 @@ export const portfolio = [
     type: "Digital Platform",
     status: "Public",
     href: "https://lankainvite.lk",
+    slug: "lanka-invite",
     description: "Digital invitation platform / website for event invitations and online sharing.",
     tech: ["Events", "Digital Invites", "Sharing"],
   },
@@ -47,11 +54,33 @@ export const portfolio = [
     type: "Business Website",
     status: "Public",
     href: "https://siyasroadvertising.com",
+    slug: "siyasro",
     description: "Advertising business website showcasing services and client trust.",
     tech: ["Advertising", "Portfolio", "Brand"],
   },
   {
+    name: "Lunuwila Agri",
+    type: "Business Website",
+    status: "Public",
+    href: "https://lunuwilaagri.com",
+    slug: "lunuwila-agri",
+    description:
+      "Website for a family-run Ceylon cinnamon and dairy farm in Lunuwila, showcasing hand-peeled cinnamon, spices and farm-fresh dairy products with retail and wholesale inquiries.",
+    tech: ["Agriculture", "Products", "Wholesale"],
+  },
+  {
+    name: "Aradhana Mobiles",
+    type: "Retail Website",
+    status: "Public",
+    href: "https://aradhanamobiles.lk",
+    slug: "aradhana-mobiles",
+    description:
+      "Website for a mobile phone shop in Dankotuwa featuring brand new and used phones, accessories, repair services, weekly deals and customer showcases.",
+    tech: ["Retail", "Mobile Phones", "Repairs"],
+  },
+  {
     name: "Gym Management System",
+    icon: Dumbbell,
     type: "Business System",
     status: "Private",
     description: "Custom system for managing gym members, attendance, payments and operations.",
@@ -59,6 +88,7 @@ export const portfolio = [
   },
   {
     name: "POS System",
+    icon: Store,
     type: "Retail System",
     status: "Private",
     description: "Point-of-sale system for managing sales, products, billing and business reports.",
@@ -66,6 +96,7 @@ export const portfolio = [
   },
   {
     name: "IoT Projects",
+    icon: Cpu,
     type: "Device Integration",
     status: "Private",
     description: "Device-integrated systems using hardware, sensors or access-control style workflows.",

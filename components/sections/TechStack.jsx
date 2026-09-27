@@ -26,12 +26,13 @@ export default function TechStack() {
       eyebrow="Tech Stack"
       title="Modern tools for web, cloud and connected systems"
       description="We choose technology based on maintainability, performance and the client's long-term needs."
+      className="bg-surface-alt"
     >
       <div className="flex flex-wrap justify-center gap-3">
         {techStack.map((tech) => (
           <span
             key={tech}
-            className="rounded-full border border-white/10 bg-white/[0.05] px-5 py-3 text-sm font-bold text-slate-200"
+            className="rounded-full border border-line bg-white px-4 py-2 text-sm font-semibold text-ink shadow-soft transition duration-200 hover:border-brand-indigo/50 hover:text-brand-indigo"
           >
             {tech}
           </span>
@@ -43,11 +44,13 @@ export default function TechStack() {
           return (
             <div
               key={item.title}
-              className="rounded-3xl border border-white/10 bg-white/[0.04] p-6"
+              className="card p-6"
             >
-              <Icon className="h-7 w-7 text-cyan-300" aria-hidden="true" />
-              <h3 className="mt-5 text-xl font-bold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-300">{item.text}</p>
+              <span className="icon-box">
+                <Icon className="h-6 w-6" aria-hidden="true" />
+              </span>
+              <h3 className="mt-5 text-lg font-bold tracking-[-0.02em] text-ink">{item.title}</h3>
+              <p className="mt-2 text-[15px] leading-[1.7] text-muted">{item.text}</p>
             </div>
           );
         })}

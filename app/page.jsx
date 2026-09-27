@@ -1,4 +1,5 @@
 import Navbar from "@/components/Navbar";
+import RevealObserver from "@/components/RevealObserver";
 import Hero from "@/components/sections/Hero";
 import ClientStrip from "@/components/sections/ClientStrip";
 import Services from "@/components/sections/Services";
@@ -10,6 +11,7 @@ import TechStack from "@/components/sections/TechStack";
 import About from "@/components/sections/About";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
+import FinalCta from "@/components/sections/FinalCta";
 import Footer from "@/components/sections/Footer";
 
 export default function Home() {
@@ -28,8 +30,10 @@ export default function Home() {
         <About />
         <Testimonials />
         <Contact />
+        <FinalCta />
       </main>
       <Footer />
+      <RevealObserver />
     </>
   );
 }
