@@ -2,7 +2,7 @@ export const testimonials = [
   {
     brand: "Malpiyali",
     quote: "The team created a clean website that represents our brand well and supported us throughout the project.",
-    person: "Mo Mohammadkhani",
+    person: "Gayan Colambage",
     role: "Owner",
   },
   {
