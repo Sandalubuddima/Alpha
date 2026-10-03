@@ -1,7 +1,7 @@
 export const clients = [
   "ClassFlow",
   "Malpiyali",
-  "Mishel Lanka Tours",
+  "Nelum Iron Works",
   "Everlasting Cleaning",
   "Lanka Invite",
   "Siyasro Advertising",

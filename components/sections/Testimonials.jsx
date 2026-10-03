@@ -18,7 +18,7 @@ export default function Testimonials() {
       description="Short, practical feedback from businesses that worked with AlphaGen Coding."
       className="bg-surface-alt"
     >
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="grid gap-5 md:grid-cols-2">
         {testimonials.map((testimonial) => (
           <figure key={testimonial.brand} className="card relative flex flex-col overflow-hidden p-7">
             <span

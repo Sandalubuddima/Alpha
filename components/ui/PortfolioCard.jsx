@@ -73,6 +73,12 @@ export function PrivateSystemCard({ project }) {
       </div>
       <p className="mt-5 text-xs font-bold uppercase tracking-[0.18em] text-brand-indigo">{project.type}</p>
       <h3 className="mt-2 text-lg font-bold tracking-[-0.02em] text-ink">{project.name}</h3>
+      {project.implementations && (
+        <p className="mt-4 flex items-baseline gap-2 border-y border-line py-3">
+          <span className="text-3xl font-bold tracking-[-0.03em] text-brand-indigo">{project.implementations}</span>
+          <span className="text-sm font-medium text-body">implementations completed</span>
+        </p>
+      )}
       <p className="mt-2 flex-1 text-[15px] leading-[1.7] text-muted">{project.description}</p>
       <Tags items={project.tech} />
     </article>
