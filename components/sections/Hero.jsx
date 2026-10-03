@@ -3,7 +3,7 @@ import { Button, Container } from "@/components/ui";
 import styles from "./Hero.module.css";
 
 const stats = [
-  { value: "8+", label: "Live client projects" },
+  { value: "20+", label: "Live client projects" },
   { value: "3", label: "Countries served" },
   { value: "24h", label: "Response time" },
   { value: "100%", label: "Post-launch support" },
